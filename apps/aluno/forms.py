@@ -4,7 +4,7 @@ from apps.aluno.models import Aluno
 class AlunoForms(forms.ModelForm):
     class Meta:
         model = Aluno
-        formsexclude = ["",]
+        exclude = ["",]
         labels = {
             "matricula": "Matrícula",
             "status": "Ativo",
@@ -15,5 +15,5 @@ class AlunoForms(forms.ModelForm):
             "matricula": forms.TextInput(attrs={"class": "form-control"}),
             "telefone": forms.TextInput(attrs={"class": "form-control"}),
             "email": forms.EmailInput(attrs={"class": "form-control"}),
-            "status": forms.CheckboxInput(attrs={"clas": "form-control form-check-input"}),
+            "status": forms.CheckboxInput(attrs={"clas": "form-control form-check-input"})
         }
