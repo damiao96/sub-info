@@ -4,11 +4,11 @@
 <br>
 <div class="container">
 
-    <h1>Cadastro de Aluno</h1>
+    <h1>Edição de Aluno</h1>
 
     <br>
 
-    <form action="{% url 'aluno/cadastro' %}" method="POST" class="row g-3">
+    <form action="{% url 'aluno/edita' aluno_id %}" method="POST" class="row g-3">
         {% csrf_token %}
         
             <div class="col-md-12">
@@ -39,8 +39,8 @@
               </div>
 
             <div class="text-center">
-                <button type="submit" class="btn btn-primary btn-lg"><i class="bi bi-save"></i> Salvar</button>
-                <button type="reset" class="btn btn-secondary btn-lg"><i class="bi bi-trash"></i> Limpar</button>
+                <button type="submit" class="btn btn-primary btn-lg"><i class="bi bi-arrow-clockwise"></i> Atualizar</button>
+                <a href="{% url 'aluno/lista ' % }" class="btn btn-secondary btn-lg"><i class="bi bi-x"></i> Cancelar</a>
             </div>
 
         </div>

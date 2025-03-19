@@ -1,37 +1,61 @@
 {% extends 'shared/base.html' %}
 {% load static %}
 {% block conteudo %}
+<br><br>
+
+<h2>Lista de Alunos</h2>
+
+<br>
+
 <div class="container-fluid">
     <table class="table table-hover">
         <thead>
-            <tr class="table-active">
+            <tr class="table-primary">
                 <th>ID</th>
-                <th>Matricula</th>
+                <th>Matrícula</th>
                 <th>Nome</th>
-                <th>Telefone</th>
+                <th>Tefone</th>
                 <th>Status</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
             {% for aluno in alunos %}
                 <tr>
-                    <td>{{ aluno.id}}</td>
-                    <td>{{ aluno.matricula}}</td>
-                    <td>{{ aluno.nome}}</td>
-                    <td>{{ aluno.telefone}}</td>
+                    <td>{{ aluno.id }}</td>
+                    <td>{{ aluno.matricula }}</td>
+                    <td>{{ aluno.nome }}</td>
+                    <td>{{ aluno.telefone }}</td>
                     <td>
                         {% if aluno.status %}
-                            Ativo
-                        {% else %}    
-                            Inativo
-                        {% endif %}    
+                            <p class= "text-success">Ativo</p>
+                        {% else %}
+                        <p class= "text-danger">Inativo</p>
+                        {% endif %}
+                    </td>
+                    <td class="text-nowrap">
+                        <!--Exibir-->
+                        <a href="" class="btn btn-outline-info btn-sm" 
+                        data-bs-toggle="tooltip" data-bs-placement="bottom" title="Exibir"> 
+                          <i class="bi bi-eye"></i></a>
+
+                        <!--Editar-->
+                        <a href="{% url 'aluno/edita' aluno.id %}" class="btn btn-outline-warning btn-sm" 
+                        data-bs-toggle="tooltip" data-bs-placement="bottom" title="Editar"> 
+                          <i class="bi bi-pencil-square"></i></a>
                     </td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
-    <center>
+
+    <br>
+
+    <div class="text-center">
         <a href="{% url 'aluno/cadastro' %}" class="btn btn-primary btn-lg">Cadastrar</a>
-    </center>
+    </div>
+
 </div>
+<br><br>
+
 {% endblock %}

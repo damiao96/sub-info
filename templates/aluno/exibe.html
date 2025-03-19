@@ -1,0 +1,57 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+{% block conteudo %}
+
+<br>    <br>
+
+<div class="container">
+
+    <h2>Exibe Aluno</h2>
+    <br>
+
+    <table class="table table-hover">
+        <tr class="table-info">
+            <th>Campo</th>
+            <th>Valor</th>
+        </tr>
+        <tr>
+            <td>ID</td>
+            <td>{{ aluno.id }}</td>
+        </tr>
+        <tr>
+            <td>Nome</td>
+            <td>{{ aluno.nome }}</td>
+        </tr>
+        <tr>
+            <td>Matrícula</td>
+            <td>{{ aluno.matricula }}</td>
+        </tr>
+        <tr>
+            <td>Telefone</td>
+            <td>{{ aluno.telefone }}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{% if aluno.email %}{{aluno.email}}{% else %}-{% endif %}</td>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td>
+                {% if aluno.status %}
+                    <p class="text-success">Ativo</p>
+                {% else %}
+                    <p class="text-danger">Inativo</p>
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+    <div class="text-center">
+        <a href="{% url 'aluno/cadastro' %}" class="btn btn-primary btn-lg">
+            <i class="bi bi-plus-circle"></i> Cadastrar</a>
+        <a href="{% url 'aluno/edita' aluno.id %}" class="btn btn-warning btn-lg"><i class="bi bi-pencil-square"></i> Editar</a>
+    </div>
+
+    <button class="btn btn-success" href="#" onclick="window.history.back()"><i class="bi bi-chevron-left"></i> Voltar</button>
+</div>
+
+{% endblock %}
